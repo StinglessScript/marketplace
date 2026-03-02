@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Longvan.vn - Ultra Refined Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#0f43bd", 
+                    secondary: "#1a1e2e",
+                    accent: "#f36a4c",
+                    "background-light": "#f6f6f8", 
+                    "background-dark": "#101622", 
+                    surface: "#ffffff"
+                },
+                fontFamily: {
+                    display: "'Be Vietnam Pro', sans-serif",
+                    serif: "'Playfair Display', serif"
+                },
+                boxShadow: {
+                    'soft': '0 8px 30px -4px rgba(0, 0, 0, 0.04)',
+                    'card': '0 4px 12px rgba(0, 0, 0, 0.03)',
+                    'inner-subtle': 'inset 0 1px 2px rgba(0, 0, 0, 0.03)',
+                    'premium': '0 2px 8px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.1)',
+                },
+                backdropBlur: {
+                    'xs': '2px',
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            }
+        }
+    };
+    </script>
+<style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .service-card {
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-radius: 0.75rem !important;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        .service-card > div:first-child {
+            border-radius: 0.75rem 0.75rem 0 0 !important;
+        }
+        .service-card .p-4 {
+            padding: 0.75rem !important;
+        }
+        .service-card h3 {
+            font-size: 0.875rem !important;
+            line-height: 1.3 !important;
+            min-height: 2.3rem !important;
+            margin-bottom: 0.375rem !important;
+        }
+        .service-card .location-info {
+            font-size: 0.6875rem !important;
+            margin-bottom: 0.375rem !important;
+        }
+        .service-card .location-info .material-symbols-outlined {
+            font-size: 13px !important;
+        }
+        .service-card .stats-row {
+            margin-bottom: 0.625rem !important;
+            font-size: 0.6875rem !important;
+        }
+        .service-card .stats-row .material-symbols-outlined {
+            font-size: 13px !important;
+        }
+        .service-card .price-section {
+            padding-top: 0.5rem !important;
+            gap: 0.5rem !important;
+        }
+        .service-card .price-label {
+            font-size: 0.625rem !important;
+        }
+        .service-card .price-value {
+            font-size: 1rem !important;
+        }
+        .service-card .book-button {
+            font-size: 0.75rem !important;
+            padding: 0.4rem 0.875rem !important;
+        }
+        .service-card .aspect-\[16\/10\] {
+            aspect-ratio: 16 / 11 !important;
+        }
+        
+        /* Accessibility: Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .service-card:hover {
+                transform: none;
+            }
+            .group:hover img {
+                transform: none !important;
+            }
+        }
+        
+        /* Focus states for keyboard navigation */
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 2px solid #0f43bd;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light text-slate-800 font-display min-h-screen flex flex-col antialiased text-[15px]">
+<div class="bg-primary text-white shadow-lg relative z-50">
+<div class="border-b border-white/5">
+<div class="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto py-1.5 flex justify-between items-center text-[11px] font-light tracking-wide">
+<div class="flex gap-3 sm:gap-4 opacity-90 text-[10px] sm:text-xs">
+<a class="hover:text-white hover:opacity-100 transition-all hidden md:inline" href="#">Trở thành đối tác</a>
+<a class="hover:text-white hover:opacity-100 transition-all" href="#">Tải ứng dụng</a>
+<a class="hover:text-white hover:opacity-100 transition-all hidden sm:inline" href="#">Hỗ trợ</a>
+</div>
+<div class="flex gap-2 sm:gap-4 items-center opacity-90 text-[10px] sm:text-xs">
+<a class="flex items-center gap-1 hover:text-white transition-colors hidden md:flex" href="#">
+<span class="material-symbols-outlined text-[14px]">notifications</span>
+                        Thông báo
+                    </a>
+<a class="hover:text-white transition-colors font-medium" href="#">Đăng ký</a>
+<div class="h-3 w-px bg-white/20"></div>
+<a class="hover:text-white transition-colors font-medium" href="#">Đăng nhập</a>
+</div>
+</div>
+</div>
+<div class="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto py-3 pb-4">
+<div class="flex items-center justify-between gap-2 sm:gap-4 md:gap-8">
+<a class="flex items-center gap-2 sm:gap-2.5 shrink-0 group" href="#">
+<div class="size-8 sm:size-9 bg-white rounded-lg flex items-center justify-center text-primary group-hover:scale-105 transition-transform shadow-md">
+<span class="text-base sm:text-lg font-black tracking-tighter">LV</span>
+</div>
+<div class="flex flex-col hidden sm:flex">
+<h2 class="text-base sm:text-lg font-bold tracking-tight leading-none">LongVan</h2>
+<p class="text-[9px] text-white/70 font-light tracking-wide">Marketplace</p>
+</div>
+</a>
+<div class="flex-1 max-w-2xl relative mx-2 sm:mx-auto">
+<div class="flex w-full rounded-full bg-white shadow-inner-subtle items-center p-0.5 border border-white/10 transition-all focus-within:ring-2 focus-within:ring-white/20 h-8 sm:h-9">
+<div class="pl-2 sm:pl-3 pr-2">
+<span class="material-symbols-outlined text-gray-400 text-[16px] sm:text-[18px]">search</span>
+</div>
+<input class="flex-1 border-none bg-transparent px-1 py-1 text-gray-800 placeholder-gray-400 focus:ring-0 text-xs sm:text-sm h-7 font-light" placeholder="Tìm kiếm dịch vụ..." type="text"/>
+<div class="h-4 w-px bg-gray-100 mx-1 sm:mx-2"></div>
+<div class="relative group cursor-pointer px-1.5 sm:px-2 py-0.5 hover:bg-gray-50 rounded-full transition-colors mr-1 hidden sm:block">
+<div class="flex items-center gap-1 text-gray-600 hover:text-primary text-[11px] font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px] text-gray-400">location_on</span>
+                                TP.HCM
+                                <span class="material-symbols-outlined text-[14px] text-gray-400">expand_more</span>
+</div>
+</div>
+<button class="bg-accent hover:bg-orange-600 text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-all shadow-md shrink-0">
+<span class="material-symbols-outlined text-[16px] sm:text-[18px]">search</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-3 sm:gap-6">
+<a href="my-bookings.html" class="relative cursor-pointer group flex flex-col items-center gap-0.5">
+<div class="p-1 sm:p-1.5 rounded-full hover:bg-white/10 transition-colors relative">
+<span class="material-symbols-outlined text-[20px] sm:text-[22px] font-light">calendar_month</span>
+<span class="absolute top-0 right-0 bg-accent text-white text-[8px] font-bold h-3.5 w-3.5 flex items-center justify-center rounded-full border border-primary shadow-sm">1</span>
+</div>
+<span class="text-[8px] sm:text-[9px] font-medium opacity-80 group-hover:opacity-100 hidden sm:block">Lịch đặt</span>
+</a>
+<a href="#" class="relative cursor-pointer group flex flex-col items-center gap-0.5">
+<div class="p-1 sm:p-1.5 rounded-full hover:bg-white/10 transition-colors relative">
+<span class="material-symbols-outlined text-[20px] sm:text-[22px] font-light">shopping_bag</span>
+<span class="absolute top-0 right-0 bg-accent text-white text-[8px] font-bold h-3.5 w-3.5 flex items-center justify-center rounded-full border border-primary shadow-sm">3</span>
+</div>
+<span class="text-[8px] sm:text-[9px] font-medium opacity-80 group-hover:opacity-100 hidden sm:block">Giỏ hàng</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<main class="flex-1 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto w-full py-5 space-y-6">
+<div class="grid grid-cols-12 gap-3 sm:gap-4 h-auto">
+<div class="col-span-12 lg:col-span-8 rounded-xl overflow-hidden relative group shadow-soft h-[280px] sm:h-[320px] lg:h-[360px]">
+<!-- Slider Container -->
+<div class="slider-container relative w-full h-full">
+<!-- Slide 1 - Baby Spa -->
+<div class="slide active absolute inset-0 transition-opacity duration-500">
+<img alt="Baby enjoying a spa session" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt-gUUTZ8unwMqJJmsBoL0ntklijSYTG2yNX3HtYeNt2PNwEryjKtn6kU96wt2ACz01AAKwf_YCSxcAdazapK-EnkTQxDKEr_K7lN-7lTzD6f0XhUFfuyfZNDfYj0A4UM28geaF8WN9dzXsF0D-dnD3WXW-cXkLVPW6duLj7jtzAUACKyHT6SG_AlidxL4fvGZnX6kNIphbwbn031w-DcipWkokU3ysRZAtTYW0s4RjunczdijI3oCuao18wMgIDzEvICvteAdwgo6"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent flex flex-col justify-center px-6 sm:px-8 lg:px-12 pb-8 sm:pb-12">
+<span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-2 sm:mb-3">Premium Service</span>
+<h1 class="text-xl sm:text-2xl lg:text-4xl font-serif font-bold text-white leading-tight mb-2 drop-shadow-md tracking-tight">Bubbly Baby Spa <br/><i class="font-light text-lg sm:text-xl lg:text-3xl">Khởi đầu hoàn hảo cho bé yêu</i></h1>
+<p class="text-white/95 mb-4 sm:mb-6 lg:mb-8 text-xs sm:text-sm font-light max-w-sm leading-relaxed">Tận hưởng dịch vụ massage, bơi thủy liệu và chăm sóc da cao cấp dành riêng cho thiên thần nhỏ của bạn.</p>
+<div class="flex gap-3 mb-2">
+<button class="bg-white text-primary font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-full w-fit hover:bg-gray-50 transition shadow-lg flex items-center gap-1.5 group/btn text-[11px] sm:text-xs tracking-wide">
+Khám phá ngay
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Slide 2 - Workshop Vẽ -->
+<div class="slide absolute inset-0 opacity-0 transition-opacity duration-500">
+<img alt="Art workshop painting class" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1200&h=600&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-r from-violet-900/90 via-violet-700/40 to-transparent flex flex-col justify-center px-6 sm:px-8 lg:px-12 pb-8 sm:pb-12">
+<span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-2 sm:mb-3">Creative Workshop</span>
+<h1 class="text-xl sm:text-2xl lg:text-4xl font-serif font-bold text-white leading-tight mb-2 drop-shadow-md tracking-tight">Workshop Vẽ Sáng Tạo <br/><i class="font-light text-lg sm:text-xl lg:text-3xl">Khơi nguồn cảm hứng nghệ thuật</i></h1>
+<p class="text-white/95 mb-4 sm:mb-6 lg:mb-8 text-xs sm:text-sm font-light max-w-sm leading-relaxed">Học vẽ từ cơ bản đến nâng cao với giáo viên chuyên nghiệp. Phù hợp mọi lứa tuổi.</p>
+<div class="flex gap-3 mb-2">
+<button class="bg-white text-violet-700 font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-full w-fit hover:bg-gray-50 transition shadow-lg flex items-center gap-1.5 group/btn text-[11px] sm:text-xs tracking-wide">
+Đăng ký ngay
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Slide 3 - IT Helpdesk -->
+<div class="slide absolute inset-0 opacity-0 transition-opacity duration-500">
+<img alt="IT support technician helping customer" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&h=600&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-700/40 to-transparent flex flex-col justify-center px-6 sm:px-8 lg:px-12 pb-8 sm:pb-12">
+<span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-2 sm:mb-3">Tech Support</span>
+<h1 class="text-xl sm:text-2xl lg:text-4xl font-serif font-bold text-white leading-tight mb-2 drop-shadow-md tracking-tight">IT Helpdesk 24/7 <br/><i class="font-light text-lg sm:text-xl lg:text-3xl">Hỗ trợ kỹ thuật chuyên nghiệp</i></h1>
+<p class="text-white/95 mb-4 sm:mb-6 lg:mb-8 text-xs sm:text-sm font-light max-w-sm leading-relaxed">Sửa chữa máy tính, cài đặt phần mềm, tư vấn công nghệ. Hỗ trợ tận nơi hoặc từ xa.</p>
+<div class="flex gap-3 mb-2">
+<button class="bg-white text-slate-800 font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-full w-fit hover:bg-gray-50 transition shadow-lg flex items-center gap-1.5 group/btn text-[11px] sm:text-xs tracking-wide">
+Liên hệ ngay
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slider Controls -->
+<button class="slider-prev absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 rounded-full transition-all z-20 hidden sm:flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="slider-next absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 rounded-full transition-all z-20 hidden sm:flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+
+<!-- Slider Dots -->
+<div class="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+<div class="slider-dot w-2 h-2 bg-white rounded-full opacity-100 ring-2 ring-white/30 cursor-pointer transition-all"></div>
+<div class="slider-dot w-2 h-2 bg-white/50 rounded-full hover:opacity-80 transition-opacity cursor-pointer"></div>
+<div class="slider-dot w-2 h-2 bg-white/50 rounded-full hover:opacity-80 transition-opacity cursor-pointer"></div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 grid grid-rows-2 gap-3 h-full">
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-center relative overflow-hidden group transition-all hover:shadow-lg bg-white/60 cursor-pointer">
+<div class="relative z-10 flex items-start gap-3">
+<div class="bg-gradient-to-br from-orange-50 to-orange-100 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 shadow-sm text-accent ring-1 ring-orange-100/50">
+<span class="material-symbols-outlined font-light text-[22px] sm:text-[24px]">redeem</span>
+</div>
+<div>
+<h3 class="font-bold text-sm sm:text-base text-gray-800 tracking-tight group-hover:text-accent transition-colors">Ưu Đãi Đặc Quyền</h3>
+<p class="text-xs sm:text-[13px] text-gray-600 mt-0.5 leading-snug font-light">Giảm ngay 50% cho đơn hàng đầu tiên của bạn.</p>
+</div>
+</div>
+<div class="mt-2 ml-14 flex items-center text-accent font-semibold text-[11px] sm:text-xs cursor-pointer hover:underline gap-1"> 
+                        Lấy mã <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</div>
+<img alt="Gift decoration" class="absolute -right-4 -bottom-4 w-24 opacity-10 rotate-12 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoKRM34vSqgCDE-dldHofGPGkYtWrCEnvGdTjGtZc4g6IXA3oZF5BQ7yX_Mbba0uInVT7c162Ho5Lw3NiHMQ4YSnMZWuwtRawvdIFahK7M_Ap_9k5WAGbOxcydrbZMGrjbjllb9L_n5Y-BNvVKjNnhm5xlziaOsoHzU4imHDDMW9im0Qz1Uw6evjshsxW7jQUJLcQUx9xyZ5pY241koZ8Jjt-671OLwNiyqW4ZxBw9DzzTUgZCxft8ivcQgeoB72kPXlEV6ss9iJOf"/>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-center relative overflow-hidden group transition-all hover:shadow-lg bg-white/60 cursor-pointer">
+<div class="relative z-10 flex items-start gap-3">
+<div class="bg-gradient-to-br from-blue-50 to-blue-100 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary ring-1 ring-blue-100/50">
+<span class="material-symbols-outlined font-light text-[22px] sm:text-[24px]">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="font-bold text-sm sm:text-base text-gray-800 tracking-tight group-hover:text-primary transition-colors">Ví LongvanPay</h3>
+<p class="text-xs sm:text-[13px] text-gray-600 mt-0.5 leading-snug font-light">Thanh toán an toàn, hoàn tiền tới 10% mỗi giao dịch.</p>
+</div>
+</div>
+<div class="mt-2 ml-14 flex items-center text-primary font-semibold text-[11px] sm:text-xs cursor-pointer hover:underline gap-1"> 
+                        Kích hoạt <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</div>
+<img alt="Wallet decoration" class="absolute -right-4 -bottom-4 w-24 opacity-10 rotate-12 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcpAQTCJ7ru_NTtqdq0ZreGYy0l4-E4hCdbruelLhZvjl1uaPqwlsmWlPAyd_5P65adYvyzGYEsdRZMpKnhrPp75fXX9gL76dFNdRgI2LDLHPfLMYUvzjdQ294KG2PtcNZPb2XZcjUTDS7C7tAtP-woDR6xF41qWPzB5JrYpYpFaIiBpvJTh_AOVsecmxr4wVMTPYs7ge8d0FwAMRRE0MV-lF_Je-LwSRbKT4BHI-MIZxZpP7p2AX9lyftxaDFGmYgB3QZbJiekDHW"/>
+</div>
+</div>
+</div>
+<div class="py-2">
+<h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 tracking-tight flex items-center gap-2">
+<span class="w-1 h-5 sm:h-6 bg-accent rounded-full"></span>
+                Khám phá danh mục
+            </h2>
+<div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-11 gap-3 sm:gap-4">
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-rose-500 group-hover:bg-rose-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-rose-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[18px] sm:text-[22px] sm:text-[24px] font-thin">spa</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-rose-600 transition-colors text-center">Làm đẹp</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-emerald-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">cardiology</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-emerald-600 transition-colors text-center">Sức khỏe</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-sky-500 group-hover:bg-sky-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-sky-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">cleaning_services</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-sky-600 transition-colors text-center">Vệ sinh</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">construction</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-orange-600 transition-colors text-center">Sửa chữa</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-indigo-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">school</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-indigo-600 transition-colors text-center">Giáo dục</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-violet-500 group-hover:bg-violet-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-violet-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">diversity_3</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-violet-600 transition-colors text-center">Tư vấn</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-fuchsia-500 group-hover:bg-fuchsia-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-fuchsia-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">photo_camera</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-fuchsia-600 transition-colors text-center">Chụp ảnh</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-teal-500 group-hover:bg-teal-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-teal-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">pets</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-teal-600 transition-colors text-center">Thú cưng</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-purple-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">palette</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-purple-600 transition-colors text-center">Nghệ thuật</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-cyan-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">computer</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-cyan-600 transition-colors text-center">IT Support</span>
+</a>
+<a class="flex flex-col items-center gap-1.5 group cursor-pointer" href="#">
+<div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-slate-500 group-hover:bg-slate-800 group-hover:text-white group-hover:shadow-lg group-hover:shadow-slate-200/50 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[22px] sm:text-[24px] font-thin">grid_view</span>
+</div>
+<span class="text-[11px] sm:text-xs font-medium text-gray-600 group-hover:text-slate-800 transition-colors text-center">Tất cả</span>
+</a>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-card border border-gray-100 overflow-hidden mt-2">
+<div class="px-6 py-4 flex items-center justify-between border-b border-gray-50">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 sm:gap-3">
+<span class="material-symbols-outlined text-[26px] sm:text-[28px] filled-icon text-accent animate-pulse">bolt</span>
+<h2 class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900">Flash Deal</h2>
+</div>
+<div class="flex items-center gap-1.5 text-xs font-medium bg-red-50 px-2.5 py-1 rounded-full border border-red-100">
+<span class="text-red-500 uppercase text-[10px] tracking-wide font-bold">Ends in</span>
+<div class="bg-red-500 text-white px-1.5 py-0.5 rounded text-[10px] font-bold min-w-[20px] text-center">02</div>
+<span class="text-red-300 font-bold">:</span>
+<div class="bg-red-500 text-white px-1.5 py-0.5 rounded text-[10px] font-bold min-w-[20px] text-center">15</div>
+<span class="text-red-300 font-bold">:</span>
+<div class="bg-red-500 text-white px-1.5 py-0.5 rounded text-[10px] font-bold min-w-[20px] text-center">45</div>
+</div>
+</div>
+<a class="text-gray-600 text-xs font-medium flex items-center hover:text-primary transition-colors group gap-1" href="#">
+                    Xem tất cả <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+<!-- Card 1: Sửa chữa máy tính - Longvan System -->
+<a href="service-longvan-system-sua-chua-may-tinh.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Computer repair service" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">IT Support</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Sửa chữa máy tính</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-600 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.1, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.9 <span class="text-gray-400 font-normal">(580)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+3.2k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">150.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+
+<!-- Card 2: Bơi thủy liệu - Bubbly Baby Spa -->
+<a href="service-bubbly-baby-spa-boi-thuy-lieu.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Baby spa swimming" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="bubbly-baby-spa-cover.jpg"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">Baby Spa</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Bơi thủy liệu cho bé</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-600 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.3, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.9 <span class="text-gray-400 font-normal">(450)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+2.3k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">150.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+
+<!-- Card 3: Workshop vẽ - Xưởng Vẽ Sáng Tạo -->
+<a href="service-xuong-ve-sang-tao-ve-tranh-son-dau.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Art painting workshop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">Nghệ thuật</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Workshop vẽ tranh sơn dầu</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-600 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.3, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.8 <span class="text-gray-400 font-normal">(280)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+1.5k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">250.000đ<span class="text-sm font-normal text-gray-400">/buổi</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+
+<!-- Card 4: Massage toàn thân - Bubbly Baby Spa -->
+<a href="service-bubbly-baby-spa-massage-toan-than.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Baby massage service" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">Baby Spa</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Massage toàn thân cho bé</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-600 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.3, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.9 <span class="text-gray-400 font-normal">(450)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+2.3k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">200.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+<!-- IT Helpdesk Card -->
+<div class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card hidden">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="IT technician providing computer support" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">IT Support</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">IT Helpdesk - Hỗ trợ kỹ thuật</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-600">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Toàn quốc</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.8 <span class="text-gray-400 font-normal">(892)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+2.5k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate">180.000đ<span class="text-sm font-normal text-gray-400">/h</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap">
+Đặt ngay
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2.5 tracking-tight">
+<span class="material-symbols-outlined text-primary text-[26px] sm:text-[28px] filled-icon">verified</span>
+                Nhà cung cấp uy tín
+            </h2>
+<div class="flex gap-3 sm:gap-4 overflow-x-auto pb-6 scrollbar-hide">
+<!-- 1. Longvan System -->
+<div class="min-w-[240px] sm:min-w-[280px] bg-white p-3 sm:p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3 sm:gap-4 hover:shadow-card hover:-translate-y-1 transition duration-300 cursor-pointer group">
+<div class="relative">
+<img alt="Longvan System logo" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-2 ring-gray-50 p-0.5" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop"/>
+<div class="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-0.5 border-2 border-white">
+<span class="material-symbols-outlined text-[10px] block font-bold">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<a href="longvan-system.html" class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-primary transition block truncate">Longvan System</a>
+<div class="flex items-center gap-1 text-xs sm:text-[13px] text-gray-600 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-400 filled-icon">star</span>
+<span class="font-semibold text-gray-700">4.9</span>
+<span class="w-0.5 h-2.5 bg-gray-300 mx-1"></span>
+<span>1.2k theo dõi</span>
+</div>
+<a href="longvan-system.html" class="mt-2 text-[11px] sm:text-xs font-bold text-primary bg-blue-50/50 px-3 py-1 rounded-full hover:bg-primary hover:text-white transition w-fit border border-blue-100 hover:border-transparent inline-block">Ghé thăm</a>
+</div>
+</div>
+<!-- 2. Bubbly Baby Spa -->
+<div class="min-w-[240px] sm:min-w-[280px] bg-white p-3 sm:p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3 sm:gap-4 hover:shadow-card hover:-translate-y-1 transition duration-300 cursor-pointer group">
+<div class="relative">
+<img alt="Bubbly Baby Spa avatar" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-2 ring-gray-50 p-0.5" src="bubbly-baby-spa-logo.jpg"/>
+<div class="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-0.5 border-2 border-white">
+<span class="material-symbols-outlined text-[10px] block font-bold">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<a href="bubbly-baby-spa.html" class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-primary transition block truncate">Bubbly Baby Spa</a>
+<div class="flex items-center gap-1 text-xs sm:text-[13px] text-gray-600 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-400 filled-icon">star</span>
+<span class="font-semibold text-gray-700">4.9</span>
+<span class="w-0.5 h-2.5 bg-gray-300 mx-1"></span>
+<span>2.3k theo dõi</span>
+</div>
+<a href="bubbly-baby-spa.html" class="mt-2 text-[11px] sm:text-xs font-bold text-primary bg-blue-50/50 px-3 py-1 rounded-full hover:bg-primary hover:text-white transition w-fit border border-blue-100 hover:border-transparent inline-block">Ghé thăm</a>
+</div>
+</div>
+<!-- 3. Xưởng Vẽ Sáng Tạo -->
+<div class="min-w-[240px] sm:min-w-[280px] bg-white p-3 sm:p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3 sm:gap-4 hover:shadow-card hover:-translate-y-1 transition duration-300 cursor-pointer group">
+<div class="relative">
+<img alt="Art workshop avatar" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-2 ring-gray-50 p-0.5" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=200&h=200&fit=crop"/>
+<div class="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-0.5 border-2 border-white">
+<span class="material-symbols-outlined text-[10px] block font-bold">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<a href="xuong-ve-sang-tao.html" class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-primary transition block truncate">Xưởng Vẽ Sáng Tạo</a>
+<div class="flex items-center gap-1 text-xs sm:text-[13px] text-gray-600 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-400 filled-icon">star</span>
+<span class="font-semibold text-gray-700">4.9</span>
+<span class="w-0.5 h-2.5 bg-gray-300 mx-1"></span>
+<span>856 theo dõi</span>
+</div>
+<a href="xuong-ve-sang-tao.html" class="mt-2 text-[11px] sm:text-xs font-bold text-primary bg-blue-50/50 px-3 py-1 rounded-full hover:bg-primary hover:text-white transition w-fit border border-blue-100 hover:border-transparent inline-block">Ghé thăm</a>
+</div>
+</div>
+<!-- 4. Phòng khám BS. Hà Ngọc Mạnh -->
+<div class="min-w-[240px] sm:min-w-[280px] bg-white p-3 sm:p-4 rounded-xl border border-gray-100 shadow-sm flex items-center gap-3 sm:gap-4 hover:shadow-card hover:-translate-y-1 transition duration-300 cursor-pointer group">
+<div class="relative">
+<img alt="Doctor Ha Ngoc Manh avatar" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-2 ring-gray-50 p-0.5" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop"/>
+<div class="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-0.5 border-2 border-white">
+<span class="material-symbols-outlined text-[10px] block font-bold">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<a href="bs-ha-ngoc-manh.html" class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-primary transition block truncate">BS. Hà Ngọc Mạnh</a>
+<div class="flex items-center gap-1 text-xs sm:text-[13px] text-gray-600 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-400 filled-icon">star</span>
+<span class="font-semibold text-gray-700">5.0</span>
+<span class="w-0.5 h-2.5 bg-gray-300 mx-1"></span>
+<span>3.4k theo dõi</span>
+</div>
+<a href="bs-ha-ngoc-manh.html" class="mt-2 text-[11px] sm:text-xs font-bold text-primary bg-blue-50/50 px-3 py-1 rounded-full hover:bg-primary hover:text-white transition w-fit border border-blue-100 hover:border-transparent inline-block">Ghé thăm</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Promotional Banners -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+<!-- Banner 1: Giảm giá cho khách hàng mới -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+<div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+<div class="relative z-10">
+<div class="flex items-start justify-between mb-4">
+<div>
+<div class="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+KHÁCH HÀNG MỚI
+</div>
+<h3 class="text-2xl sm:text-3xl font-bold text-white mb-2 leading-tight">
+Giảm ngay 50%
+</h3>
+<p class="text-white/90 text-sm sm:text-base font-medium">
+Cho đơn hàng đầu tiên của bạn
+</p>
+</div>
+<div class="bg-white/20 backdrop-blur-sm rounded-full p-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-[32px]">local_offer</span>
+</div>
+</div>
+<div class="flex items-center gap-3 mt-6">
+<button class="bg-white text-red-500 font-bold px-6 py-2.5 rounded-full hover:bg-red-50 transition-all shadow-md text-sm">
+Nhận ưu đãi
+</button>
+<span class="text-white/80 text-xs">Áp dụng đến 31/12/2026</span>
+</div>
+</div>
+</div>
+
+<!-- Banner 2: Tích điểm đổi quà -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+<div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+<div class="relative z-10">
+<div class="flex items-start justify-between mb-4">
+<div>
+<div class="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+CHƯƠNG TRÌNH THÀNH VIÊN
+</div>
+<h3 class="text-2xl sm:text-3xl font-bold text-white mb-2 leading-tight">
+Tích điểm đổi quà
+</h3>
+<p class="text-white/90 text-sm sm:text-base font-medium">
+Mỗi 100.000đ = 10 điểm thưởng
+</p>
+</div>
+<div class="bg-white/20 backdrop-blur-sm rounded-full p-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-[32px]">card_giftcard</span>
+</div>
+</div>
+<div class="flex items-center gap-3 mt-6">
+<button class="bg-white text-indigo-600 font-bold px-6 py-2.5 rounded-full hover:bg-indigo-50 transition-all shadow-md text-sm">
+Tìm hiểu thêm
+</button>
+<span class="text-white/80 text-xs">Đổi quà hấp dẫn</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="space-y-6 pb-12">
+<div class="flex items-center justify-between sticky top-0 bg-background-light/95 py-3 z-30 backdrop-blur-xl border-b border-gray-100 flex-wrap gap-2">
+<h2 class="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2 sm:gap-3 tracking-tight">
+<span class="w-1 h-5 sm:h-6 bg-accent rounded-full block"></span>
+                    Gợi ý cho bạn
+                </h2>
+<div class="flex bg-white p-1 rounded-full shadow-sm border border-gray-100/50">
+<button class="px-3 sm:px-4 py-1 sm:py-1.5 bg-primary text-white text-[10px] sm:text-xs font-semibold rounded-full shadow-md transition-all">Tất cả</button>
+<button class="px-3 sm:px-4 py-1 sm:py-1.5 bg-transparent text-gray-500 text-[10px] sm:text-xs font-medium rounded-full hover:bg-gray-50 hover:text-gray-900 transition-all">Gần tôi</button>
+<button class="px-3 sm:px-4 py-1 sm:py-1.5 bg-transparent text-gray-500 text-[10px] sm:text-xs font-medium rounded-full hover:bg-gray-50 hover:text-gray-900 transition-all hidden sm:block">Giá tốt</button>
+<button class="px-3 sm:px-4 py-1 sm:py-1.5 bg-transparent text-gray-500 text-[10px] sm:text-xs font-medium rounded-full hover:bg-gray-50 hover:text-gray-900 transition-all hidden sm:block">Bán chạy</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+<!-- Card 1: Hỗ trợ từ xa - Longvan System -->
+<a href="service-longvan-system-ho-tro-tu-xa.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Remote IT support" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">IT Support</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Hỗ trợ từ xa 24/7</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-500 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.1, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.9 <span class="text-gray-400 font-normal">(580)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-500">
+<span class="material-symbols-outlined text-sm">schedule</span>
+3.2k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">80.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+
+<!-- Card 2: Chăm sóc da - Bubbly Baby Spa -->
+<a href="service-bubbly-baby-spa-cham-soc-da.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Baby skincare" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">Baby Spa</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Chăm sóc da cho bé</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-500 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.3, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.9 <span class="text-gray-400 font-normal">(450)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-500">
+<span class="material-symbols-outlined text-sm">schedule</span>
+2.3k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">180.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+
+<!-- Card 3: Cài đặt phần mềm - Longvan System -->
+<a href="service-longvan-system-cai-dat-phan-mem.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Software installation" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">IT Support</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Cài đặt phần mềm</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-500 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.1, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.9 <span class="text-gray-400 font-normal">(580)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-500">
+<span class="material-symbols-outlined text-sm">schedule</span>
+3.2k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">100.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</a>
+
+<!-- Card 4: Vẽ màu nước - Xưởng Vẽ Sáng Tạo -->
+<a href="service-xuong-ve-sang-tao-ve-mau-nuoc.html" class="bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group flex flex-col h-full overflow-hidden relative cursor-pointer service-card">
+<div class="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+<img alt="Watercolor painting class" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=500&fit=crop"/>
+<div class="absolute top-3 left-3 bg-[#e85324] text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm z-10">Hot</div>
+<div class="absolute top-3 right-3 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm z-10">Nghệ thuật</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors min-h-[3.5rem] line-clamp-2">Vẽ màu nước</h3>
+<div class="flex items-center gap-1.5 mb-2 text-gray-500 location-info">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-sm font-medium">Q.3, TP.HCM</span>
+</div>
+<div class="flex items-center gap-2 mb-4 text-xs stats-row">
+<div class="flex items-center gap-1 font-bold text-gray-900">
+<span class="material-symbols-outlined text-[15px] text-yellow-400 filled-icon">star</span>
+4.8 <span class="text-gray-400 font-normal">(280)</span>
+</div>
+<span class="w-0.5 h-2.5 bg-gray-300"></span>
+<div class="flex items-center gap-1 text-gray-500">
+<span class="material-symbols-outlined text-sm">schedule</span>
+1.5k+ đã đặt
+</div>
+</div>
+<div class="mt-auto border-t border-gray-100 pt-3 flex items-center justify-between gap-3 price-section">
+<div class="flex flex-col min-w-0">
+<span class="text-gray-600 text-xs font-medium price-label">Từ</span>
+<span class="text-[#e85324] font-bold text-xl sm:text-2xl leading-none truncate price-value">1.800.000đ</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm sm:text-base font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap pointer-events-none book-button">
+Đặt ngay
+</button>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="flex justify-center pt-8">
+<button class="bg-white border border-gray-200 px-8 py-2.5 rounded-full hover:bg-gray-50 text-gray-600 text-xs font-semibold transition-all hover:shadow-md hover:text-primary flex items-center gap-1.5 group">
+                    Xem thêm dịch vụ
+                    <span class="material-symbols-outlined text-[16px] group-hover:translate-y-0.5 transition-transform">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<footer class="bg-gradient-to-br from-slate-50 to-blue-50 border-t border-gray-200 pt-16 pb-8 text-sm">
+<div class="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto">
+<!-- Top Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+<!-- Company Info -->
+<div class="lg:col-span-2 space-y-5">
+<div class="flex items-center gap-2.5">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
+<span class="text-xl font-black tracking-tighter text-white">LV</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-gray-900 tracking-tight">LongVan</h2>
+<p class="text-[10px] text-gray-500">Nền tảng dịch vụ uy tín</p>
+</div>
+</div>
+<p class="text-xs text-gray-600 leading-relaxed">
+Longvan.vn là nền tảng kết nối khách hàng với các nhà cung cấp dịch vụ chất lượng cao. 
+Chúng tôi cam kết mang đến trải nghiệm đặt dịch vụ tiện lợi, nhanh chóng và đáng tin cậy.
+</p>
+<div class="flex gap-3">
+<a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+</a>
+<a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</a>
+</div>
+</div>
+
+<!-- Customer Care -->
+<div class="space-y-5">
+<h3 class="font-bold text-gray-900 uppercase text-[10px] tracking-widest">Chăm sóc khách hàng</h3>
+<ul class="space-y-3 text-gray-600 font-light text-xs">
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Trung tâm trợ giúp</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Hướng dẫn đặt dịch vụ</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Chính sách bảo hành</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Trả hàng & Hoàn tiền</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Liên hệ hỗ trợ</a></li>
+</ul>
+</div>
+
+<!-- About -->
+<div class="space-y-5">
+<h3 class="font-bold text-gray-900 uppercase text-[10px] tracking-widest">Về Longvan.vn</h3>
+<ul class="space-y-3 text-gray-600 font-light text-xs">
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Giới thiệu</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Tuyển dụng</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Điều khoản sử dụng</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Chính sách bảo mật</a></li>
+<li><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-200" href="#">Kênh người bán</a></li>
+</ul>
+</div>
+
+<!-- Download App -->
+<div class="space-y-5">
+<h3 class="font-bold text-gray-900 uppercase text-[10px] tracking-widest">Tải ứng dụng</h3>
+<div class="flex gap-3">
+<div class="w-20 h-20 bg-white border border-gray-200 p-1.5 rounded-lg shadow-sm">
+<img alt="Download App QR Code" class="w-full h-full object-contain mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAaN9YAkFlmayi4TCAsDaQaSV_1biOOQSxd0Hb8LmICeQlDD4c5Fb4lr1rxlcNmgoQhDCHpxR1osr10gbjotSioUNTfZDFlbegH5K9zpK8FgsSPHasKg3UhTC_VGg-2SJ6Kr06--VsUHW3_7xHBVwe8dZ5d99SW7WbomWhRwDuwYmcR2KJJW6W1mFLKywl4gD5SyyheUQwz6thCKsZVN-wr-E3rm868_0YjHUGwBMnSpPwDyNIGSkR2O5Q43txmWPXxx1gl8H5FspV"/>
+</div>
+<div class="flex flex-col justify-between h-20 py-0.5">
+<img alt="Google Play" class="h-8 w-auto object-contain cursor-pointer hover:opacity-80 transition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG3XgExo9_cTOguI6Kgi5ULaej5I_FZ0TSrjzeHZLQCr-kSRjN7Ppprr7PQnY6xg1xkuvKmdeGF4tRBRA_i7dSzbIadtXbWo09C2DuQvCZyQ1Grme--t5mPl0rxDCTxOc-WL9s9qLj2kKSMVLfgy2_P9shb3meGKRwL3yDmxUb9aEWw_3Y_wRQricdk3g9s-Jtdp2rsZLxe8gNonZOWGPB5nqHrwSzZxor16VLKXiCOuAek_LRkffFSEbP6kQiHVHexLRqLdSbueuj"/>
+<img alt="App Store" class="h-8 w-auto object-contain cursor-pointer hover:opacity-80 transition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7HGsAWyvM_BId38oRyGvae4WTeV6oGbRvmcQua_Vl7tr5wUSz3MQh386H57W9fSBHrjFYFzigPKAApGCkLpsGpGFd3EjLBTUrDMtai9QLtz6LHJAGzUyCRjq4DvxJWIgBa1Y9qs-_xITtbVF1PRhksFezhPxj_sCYZVgr0Z821rF21oBQrXUxp7_Ag-gD5K1YZ3GgIAkiwigdfCVEKi8cKAygAsphW34Y6dJ83AFWAArl4puW5iij69OuKeP3U3xw0-Smj60H3xNb"/>
+</div>
+</div>
+<div class="space-y-2">
+<h4 class="font-semibold text-gray-700 text-[10px] uppercase tracking-wide">Thanh toán</h4>
+<div class="flex flex-wrap gap-2">
+<div class="bg-white border border-gray-100 p-1.5 rounded shadow-sm w-10 h-7 flex items-center justify-center hover:shadow-md transition grayscale hover:grayscale-0"><img alt="Visa" class="h-2.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ6tfnuriTdkbGo5vvSQL6ePfdaE_Tr2B6iVWx7ZUykom2EXgDS2e7gDlBYPbr_GwdkKg-qkQBgwVfPfCnqyCioN6MoZ8mZ2qgaAPTeKkKP-GcbriyQNS8DSiEQggqR-ja8VBlMYy-yvETVxBXKUD8xTtZiaIGIzSZ8sRrihlkfVmzHFibKhf87MoMaFD8gWayatoDMUtT-FuMM0-YJyCd56W1-rmtWjJ6lCZNLlKNRi2N9aq2v2eIY4IVBW2IeEuWT0s9dKq3VPqo"/></div>
+<div class="bg-white border border-gray-100 p-1.5 rounded shadow-sm w-10 h-7 flex items-center justify-center font-bold text-[7px] hover:shadow-md transition text-pink-600">Momo</div>
+<div class="bg-white border border-gray-100 p-1.5 rounded shadow-sm w-10 h-7 flex items-center justify-center font-bold text-[7px] hover:shadow-md transition text-green-600">COD</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Bottom Section -->
+<div class="border-t border-gray-200 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+<div class="text-center md:text-left">
+<p class="text-gray-900 font-semibold text-sm mb-1">CÔNG TY TNHH LONGVAN VIỆT NAM</p>
+<p class="text-gray-600 text-xs">
+<span class="material-symbols-outlined text-[14px] inline-block align-middle mr-1">location_on</span>
+37/2/6 Đường số 12, Phường An Khánh, Thành phố Thủ Đức, TP. Hồ Chí Minh
+</p>
+</div>
+<div class="flex items-center gap-4 text-xs text-gray-600">
+<a href="tel:1900-1234" class="flex items-center gap-1 hover:text-primary transition">
+<span class="material-symbols-outlined text-[16px]">phone</span>
+1900 1234
+</a>
+<a href="mailto:support@longvan.vn" class="flex items-center gap-1 hover:text-primary transition">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+support@longvan.vn
+</a>
+</div>
+</div>
+<div class="text-center text-gray-500 text-[11px] font-light">
+<p>© 2026 Longvan.vn - Nền tảng đặt dịch vụ uy tín hàng đầu Việt Nam. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Hero Slider
+(function() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let currentSlide = 0;
+    let autoplayInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.remove('opacity-0');
+                slide.classList.add('active');
+            } else {
+                slide.classList.add('opacity-0');
+                slide.classList.remove('active');
+            }
+        });
+        
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.remove('bg-white/50');
+                dot.classList.add('opacity-100', 'ring-2', 'ring-white/30');
+            } else {
+                dot.classList.add('bg-white/50');
+                dot.classList.remove('opacity-100', 'ring-2', 'ring-white/30');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        nextSlide();
+        startAutoplay();
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        prevSlide();
+        startAutoplay();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoplay();
+            currentSlide = index;
+            showSlide(currentSlide);
+            startAutoplay();
+        });
+    });
+
+    // Pause on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoplay);
+        sliderContainer.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Start autoplay
+    startAutoplay();
+})();
+</script>
+
+</body></html>

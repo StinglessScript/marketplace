@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title id="page-title">Provider | Longvan.vn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#0f43bd", 
+                    secondary: "#1a1e2e",
+                    accent: "#f36a4c",
+                    "background-light": "#f6f6f8", 
+                    "background-dark": "#101622", 
+                    surface: "#ffffff"
+                },
+                fontFamily: {
+                    display: "'Be Vietnam Pro', sans-serif",
+                    serif: "'Playfair Display', serif"
+                },
+                boxShadow: {
+                    'soft': '0 8px 30px -4px rgba(0, 0, 0, 0.04)',
+                    'card': '0 4px 12px rgba(0, 0, 0, 0.03)',
+                    'inner-subtle': 'inset 0 1px 2px rgba(0, 0, 0, 0.03)',
+                    'premium': '0 2px 8px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.1)',
+                },
+                backdropBlur: {
+                    'xs': '2px',
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            }
+        }
+    };
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .filled-icon {
+        font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
+    a:focus-visible, button:focus-visible, input:focus-visible {
+        outline: 2px solid #0f43bd;
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body class="bg-background-light text-slate-800 font-display min-h-screen flex flex-col antialiased text-[15px]">
+
+<!-- Navbar -->
+<div class="bg-primary text-white shadow-lg relative z-50">
+<div class="border-b border-white/5">
+<div class="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto py-1.5 flex justify-between items-center text-[11px] font-light tracking-wide">
+<div class="flex gap-3 sm:gap-4 opacity-90 text-[10px] sm:text-[11px]">
+<a class="hover:text-white hover:opacity-100 transition-all hidden md:inline" href="#">Trở thành đối tác</a>
+<a class="hover:text-white hover:opacity-100 transition-all" href="#">Tải ứng dụng</a>
+<a class="hover:text-white hover:opacity-100 transition-all hidden sm:inline" href="#">Hỗ trợ</a>
+</div>
+<div class="flex gap-2 sm:gap-4 items-center opacity-90 text-[10px] sm:text-[11px]">
+<a class="flex items-center gap-1 hover:text-white transition-colors hidden md:flex" href="#">
+<span class="material-symbols-outlined text-[14px]">notifications</span>
+Thông báo
+</a>
+<a class="hover:text-white transition-colors font-medium" href="#">Đăng ký</a>
+<div class="h-3 w-px bg-white/20"></div>
+<a class="hover:text-white transition-colors font-medium" href="#">Đăng nhập</a>
+</div>
+</div>
+</div>
+<div class="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto py-3 pb-4">
+<div class="flex items-center justify-between gap-2 sm:gap-4 md:gap-8">
+<a class="flex items-center gap-2 sm:gap-2.5 shrink-0 group" href="index.html">
+<div class="size-8 sm:size-9 bg-white rounded-lg flex items-center justify-center text-primary group-hover:scale-105 transition-transform shadow-md">
+<span class="text-base sm:text-lg font-black tracking-tighter">LV</span>
+</div>
+<div class="flex flex-col hidden sm:flex">
+<h2 class="text-base sm:text-lg font-bold tracking-tight leading-none">LongVan</h2>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<!-- Main Content -->
+<main class="flex-1 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto w-full py-6 space-y-8" id="main-content">
+<!-- Content will be dynamically loaded here -->
+</main>
+
+<footer class="bg-white border-t border-gray-100 pt-12 pb-6 text-sm mt-auto">
+<div class="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 max-w-[1600px] mx-auto">
+<div class="text-center text-gray-400 text-xs">
+<p>© 2024 Longvan.vn - Nền tảng đặt dịch vụ uy tín hàng đầu Việt Nam.</p>
+</div>
+</div>
+</footer>
+
+<script src="provider-data.js"></script>
+<script src="provider-render.js"></script>
+
+</body>
+</html>
